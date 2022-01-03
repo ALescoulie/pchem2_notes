@@ -3,6 +3,7 @@
 \usepackage{mathrsfs}
 \usepackage{braket}
 \usepackage{amsmath}
+\usepackage{mathrsfs}
 \newcommand{\dd}[1]{\mathrm{d}#1}
 
 \author{Alia Lescoulie}
@@ -14,7 +15,68 @@
 \begin{flushleft}
 \section{Configurations and Weights}
 
-For molecules in a system there is a probability that is will exits in a given energy state. In a system any individual molecule can exist in states with energies from $\epsilon_0$ to $\epsilon_1$ where $\epsilon_0 \equiv 0$ 
+For molecules in a system there is a probability that is will exits in a given energy state. In a system any individual molecule can exist in states with energies from $\epsilon_0$ to $\epsilon_1$ where $\epsilon_0 \equiv 0$. That lowest energy state the \textbf{zero-point energy} is the baseline for measuring other energies in the system, and must be accounted for to obtain actual energies of the system.
+
+For a system of $N$ molecule there will be $N_0$ in the $\epsilon_0$ state, $N_1$ in the $\epsilon_1$ state and so on where $\Sigma N_n = N$. The set of populations $N_0, N_1 \cdots$ in the form $\{ N_0, N_1 \cdots \}$ is an \textbf{Instantaneous Configuration}. For a system of N particles there are $N(N - 1)$ configuration total and $1/2 N(N - 1)$ distinguishable configurations. Systems display the behavior of the state they are most likely to exist in.
+
+The number of ways a general configuration can be achieved the \textbf{weight} $\mathscr{W}$ is based on number of ways each particle entered its state. For example there are $N_0 !$ ways for $N_0$ molecules to be selected. Over the entire configuration that the weight can be given by the following.
+
+\begin{equation*}
+    \mathscr{W} = \frac{N!}{N_0 ! N_1 ! \cdots}
+\end{equation*}
+
+This is because there are $N!$ ways to select N particles, and for each state with $N_i$ particles there are $N_i !$ ways for those particles to be selected. When summed over the entire system that gives the number of ways to end up with a given configuration.
+
+$\mathscr{W}$ can be approximated with the natural log and using the observation that $\ln{x!} \approx x\ln{x} - x$ giving the following.
+
+\begin{equation*}
+    \ln{\mathscr{W}} = N \ln{N} - \sum_i N_i \ln{N_i}
+\end{equation*}
+
+\subsection{Most Probable Distribution}
+
+The system will most likely exist in the configuration with the largest weight resulting it's properties matching that of the system. Since weight is a function of $N_i$ that weight can be found by optimizing $\mathscr{W}(N_i)$. This gives the following derivative
+
+\begin{equation*}
+    d \ln{\mathscr{W}} = \sum_i \big[ \frac{\partial \mathscr{W}}{\partial N_i} \big] dN_i = 0
+\end{equation*}
+
+Given the reality that states will not all share the same energy the configuration with the greatest weight must also satisfy the condition
+
+\begin{equation*}
+    \sum_i N_i \epsilon_i = E
+\end{equation*}
+
+meaning the total energy must remain constant as $N_i$ changes. The number of molecules is also fixed meaning that adding a molecule to one state necessitates removing one from another.
+
+Adding the constraints of constant total energy and number of particles to the weight differential 
+
+\begin{equation*}
+    \sum_i \big[ \frac{\partial \mathscr{W}}{\partial N_i} + \alpha - \beta \epsilon_i \big] dN_i = 0
+\end{equation*}
+
+where $\alpha$ and $\beta$ are constants. By inserting the equation for $\ln{\mathscr{W}}$ into this equation the result is
+
+\begin{equation*}
+    \frac{N_i}{N} = e^{\alpha - \beta \epsilon_i}
+\end{equation*}
+
+which is close to the Boltzmann Distribution. By there canceling out $\alpha$ the Boltzmann Distribution is arrived at.
+
+\begin{equation*}
+    \frac{N_i}{N} = \frac{e^{-\beta \epsilon_i}}{\sum_i e^{-\beta \epsilon_i}}
+\end{equation*}
+
+Here $\beta = 1 \ kT$ where k is Boltzmann's constant. The denominator of the equation is called a \textbf{partition coefficient}
+
+\subsection{Relative Population of States}
+
+Since the partition coefficient's cancel when the ratio is taken the relative population is given by
+
+\begin{equation*}
+    \frac{N_i}{N_j} = e^{-\beta(\epsilon_i - \epsilon_j)}
+\end{equation*}
+
 
 \end{flushleft}
 \end{document}
