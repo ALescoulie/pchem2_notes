@@ -1,0 +1,60 @@
+\documentclass[a4paper, 12 pt]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{mathrsfs}
+\usepackage{braket}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+
+\newcommand{\conc}[1]{\lbrack #1 \rbrack}
+\newcommand{\deriv}[2]{\frac{d #1}{d #2}}
+\newcommand{\pderiv}[2]{\frac{\partial #1}{\partial #2}}
+
+\author{Alia Lescoulie}
+\title{\vspace{-1.5cm}Kinetics}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{flushleft}
+\section*{Reaction Rates}
+
+For a given reaction $R \rightarrow P$ the \textbf{instantaneous rate of consumption} and the  \textbf{instantaneous rate of formation} are both defined respectively in terms of derivatives bellow.
+
+\begin{equation*}
+    -\deriv{\conc{R}}{t} = \deriv{\conc{P}}{t} 
+\end{equation*}
+
+Therefor it follows that for a reaction $ A + 2B \rightarrow 3C + D$ has rates:
+
+\begin{equation*}
+    \deriv{\conc{D}}{t} = \frac{1}{3} \deriv{\conc{C}}{t} = -\deriv{\conc{A}}{t} = - \frac{1}{2} \deriv{\conc{B}}{t}
+\end{equation*}
+
+By introducing a parameter for \textbf{Extent of reaction} ($\xi$) the rate of reaction can be described with a single rate. For each species $J$ in reaction, the change in amount of $J$ $dn_J$ is given by:
+
+\begin{equation*}
+    dn_J = v_j d\xi
+\end{equation*}
+
+where $v_j$ is the stoichiometric number of the species, and negative for reactant species. From that the rate of reaction $\nu$ is defined as:
+
+\begin{equation*}
+    \nu = \frac{1}{V} \deriv{\xi}{t}
+\end{equation*}
+
+where $V$ is the volume of the system. For any species $J$ in the system, since $d\xi = dn_J/v_j$ its rate is given by:
+
+\begin{equation*}
+    \nu = \frac{1}{v_J} \times \frac{1}{V} \deriv{n_j}{t}
+\end{equation*}
+
+In the case of a homogenous constant volume reaction the volume is taken into the derivative giving $\deriv{\conc{J}}{t}$
+
+\section*{Rate Laws}
+
+Rates of reaction are often proportional to the concentrations of of the reactants raised to a power times a proportionality constant. An experimentally determined equation of this kind is the \textbf{Rate Law}.
+Many reaction have rate laws of the form $\nu = k_r \conc{A}^a \conc{B}^b$ where $a$ and $b$ are the orders. The sum of the orders of the individual reactants is the \textbf{overall order}. Rate laws must be determined with experimental data. 
+
+\end{flushleft}
+\end{document}
