@@ -3,6 +3,7 @@
 \usepackage{mathrsfs}
 \usepackage{braket}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{mathrsfs}
 
 
@@ -55,6 +56,41 @@ In the case of a homogenous constant volume reaction the volume is taken into th
 
 Rates of reaction are often proportional to the concentrations of of the reactants raised to a power times a proportionality constant. An experimentally determined equation of this kind is the \textbf{Rate Law}.
 Many reaction have rate laws of the form $\nu = k_r \conc{A}^a \conc{B}^b$ where $a$ and $b$ are the orders. The sum of the orders of the individual reactants is the \textbf{overall order}. Rate laws must be determined with experimental data. 
+
+\section*{Reaction Mechanisms}
+
+Many reactions occur in a sequence of \textbf{elementary reactions} involving a small number of molecules. The \textbf{molecularity} is the number of molecules involved in the reaction. Molecularity is not the same as reaction order, thought the rate laws for elementary reactions follow orders based on molecularity.
+
+\subsection*{Consecutive Elementary Reactions}
+
+Some reactions proceed by forming an intermediate that is consumed in the process of forming products.
+
+For the following unimolecular reaction the rate law be derived as follows:
+
+\begin{equation*}
+\begin{aligned}
+    A \xrightarrow{k_a} &I \xrightarrow{k_b} P\\
+    \deriv{\conc{A}}{t} &= -k_a \conc{A}\\
+    \deriv{\conc{I}}{t} &= k_a \conc{A} - k_b \conc{I}\\
+    \deriv{\conc{P}}{t} &= k_b \conc{I}\\
+    \conc{A} &= \conc{A}_0 e^{-k_a t}\\
+    \deriv{\conc{I}}{t} + k_b \conc{I} &= k_a \conc{A}_0 e^{-k_a t}\\
+    \text{Since} \conc{I}_0 &= 0\\
+    \conc{I} &= \frac{k_a}{k_b - k_a} (e^{-k_a t} - e^{-k_b t})\conc{A}_0 \\
+    \text{At all times} &\; \conc{A} + \conc{I} + \conc{P} = \conc{A}_0 \; \text{so}\\
+    \conc{P} &= (1 + \frac{e^{-k_a t} - e^{-k_b t}}{k_b - k_a})\conc{A}_0
+\end{aligned}
+\end{equation*}
+
+The intermediate concentration rises, then falls to zero while product concentration rises from zero to $\conc{A}_0$. 
+
+As the number of steps increase the steady state approximation is needed to simplify the math. It assumes that after an initial period any intermediate is in an approximately steady concentration and thus:
+
+\begin{equation*}
+    \deriv{\conc{I}}{t} \approx 0
+\end{equation*}
+
+The steady state approximation requires that $\conc{I}$ is much less than the concentration of reactions which is the case when $k_a << k_b$.
 
 \end{flushleft}
 \end{document}
